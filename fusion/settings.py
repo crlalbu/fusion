@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -75,15 +76,19 @@ WSGI_APPLICATION = 'fusion.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'fusion2',
+#         'USER': 'postgres',
+#         'PASSWORD': 'iePhei4a',
+#         'HOST': 'LOCALHOST',
+#         'PORT': 5432,
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fusion2',
-        'USER': 'postgres',
-        'PASSWORD': 'iePhei4a',
-        'HOST': 'LOCALHOST',
-        'PORT': 5432,
-    }
+    'default': dj_database_url.config()
 }
 
 
@@ -129,7 +134,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Email teste console
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # Email produção
@@ -142,3 +147,5 @@ EMAIL_HOST_PASSWORD = 'fusion'
 DEFAULT_FROM_EMAIL = 'contato@fusion.com.br'
 
 """
+
+LOGOUT_REDIRECT_URL = 'index'
