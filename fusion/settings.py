@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '1$d275b&vu#o_+9feh!e#2_b%a#3d4qgi9#f0r=w_n3+19aau='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -81,20 +81,20 @@ WSGI_APPLICATION = 'fusion.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'fusion2',
-#         'USER': 'postgres',
-#         'PASSWORD': 'iePhei4a',
-#         'HOST': 'LOCALHOST',
-#         'PORT': 5432,
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.config()
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'fusion2',
+        'USER': 'postgres',
+        'PASSWORD': 'iePhei4a',
+        'HOST': 'LOCALHOST',
+        'PORT': 5432,
+    }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.config()
+# }
 
 
 # Password validation
@@ -139,7 +139,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Email teste console
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # Email produção
